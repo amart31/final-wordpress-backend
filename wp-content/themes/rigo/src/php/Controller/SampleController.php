@@ -37,13 +37,13 @@ class SampleController{
         "meta_input" => array(
             "product_brand" => $data["product_brand"],
             "product_price" => $data["product_price"],
-            "product_category" => $data["product_category"],
             "product_description" => $data["product_description"],
+            "product_category" => $data["product_category"],
             "product_image" => $data["product_image"]
             ),
         
         );
-       wp_insert_post($post_arr, $wp_error=true);
+        wp_insert_post($post_arr, $wp_error=true);
             return ["post added successfully"];
     }
     
