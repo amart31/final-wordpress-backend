@@ -35,11 +35,15 @@ class SampleController{
         "post_type" => "product",
         "post_author" => get_current_user_id(),
         "meta_input" => array(
-            "product_name" => $data["product_name"],
+            "product_brand" => $data["product_brand"],
+            "product_price" => $data["product_price"],
+            "product_category" => $data["product_category"],
+            "product_description" => $data["product_description"],
+            "product_image" => $data["product_image"]
             ),
         
         );
-        wp_inser_post($post_arr, $wp_error=true);
+       wp_insert_post($post_arr, $wp_error=true);
             return ["post added successfully"];
     }
     

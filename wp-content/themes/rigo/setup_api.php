@@ -14,4 +14,5 @@ $api = new \WPAS\Controller\WPASAPIController([
  * Then you can start adding each endpoint one by one
 */
 $api->get([ 'path' => '/products', 'controller' => 'SampleController:getAllProducts' ]); 
-$api->post([ 'path' => '/products/add', 'controller' => 'SampleController:createProduct' ]); 
+$api->post([ 'path' => '/products', 'controller' => 'SampleController:createProduct' ]); 
+
