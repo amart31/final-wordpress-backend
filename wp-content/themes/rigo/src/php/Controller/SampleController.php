@@ -11,14 +11,21 @@ class SampleController{
         ];
     }
     public function getAllProducts(){
-        $query = Product::all();
+        $query = Product::all(array(
+            'post_type' => 'product',
+            'post_status' => 'publish',
+            'posts_per_page' => 30
+            ));
+        
         
         if($query->have_posts()){
             while($query->have_posts()){
-                $query->the_post();        
+                $query->the_post();  
+                
         //Include the Meta Tags and Values
         $query->post->meta_keys = get_post_meta($query->post->ID);
         $query->post->image = get_field("image_01",$query->post->ID);
+        
       }
     }    
         return $query->posts;
@@ -33,6 +40,7 @@ class SampleController{
         "post_title" => $data["post_title"],
         "post_content" => $data["post_content"],
         "post_type" => "product",
+        "post_status" => "publish",
         "post_author" => get_current_user_id(),
         "meta_input" => array(
             "product_brand" => $data["product_brand"],
