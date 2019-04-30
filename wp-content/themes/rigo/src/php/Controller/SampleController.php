@@ -42,12 +42,12 @@ class SampleController{
         "post_type" => "product",
         "post_status" => "publish",
         "post_author" => get_current_user_id(),
+         "image" => $data["image"],
         "meta_input" => array(
             "product_brand" => $data["product_brand"],
             "product_price" => $data["product_price"],
             "product_description" => $data["product_description"],
-            "product_category" => $data["product_category"],
-            "product_image" => $data["product_image"]
+            "category" => $data["category"]
             ),
         
         );
