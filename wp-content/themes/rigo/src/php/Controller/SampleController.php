@@ -34,30 +34,31 @@ class SampleController{
     //get products by user
     
     //post function for users to add products
-        public function createProduct($data){
+    public function createProduct($data){
+
         $post_arr = array(
-        
-        "post_title" => $data["post_title"],
-        "post_content" => $data["post_content"],
-        "post_type" => "product",
-        "post_status" => "publish",
-        "post_author" => get_current_user_id(),
-         "image" => $data["image"],
-        "meta_input" => array(
-            "product_brand" => $data["product_brand"],
-            "product_price" => $data["product_price"],
-            "product_description" => $data["product_description"],
-            "category" => $data["category"]
-            ),
-        
-        );
-        wp_insert_post($post_arr, $wp_error=true);
-            return ["post added successfully"];
+            "post_title" => $data["post_title"],
+            "post_content" => $data["post_content"],
+            "post_type" => "product",
+            "post_status" => "publish",
+            "post_author" => get_current_user_id(),
+            "meta_input" => array(
+                "product_brand" => $data["product_brand"],
+                "product_price" => $data["product_price"],
+                "product_description" => $data["product_description"],
+                "category" => $data["category"],
+                "image_01" => $data["image_01"]
+                ),
+            
+            );
+            
+       wp_insert_post($post_arr, $wp_error=true);
+
+       
+        return ["post added successfully"];
     }
     
     
     
 }
 ?>
-
-       
